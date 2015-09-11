@@ -1,0 +1,16 @@
+{
+  "name": "<%= name %>",
+  "version": "0.0.0",
+  "description": "> Short Project Description",
+  "private": true,
+  "main": "",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "validateTest": "force-dev-tool validateTest"
+  },
+  "author": "",
+  "license": "ISC",
+  "dependencies": {
+    "force-dev-tool": "^0.1.0"
+  }
+}

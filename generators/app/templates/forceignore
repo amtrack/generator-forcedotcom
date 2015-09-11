@@ -1,0 +1,22 @@
+# Format:
+#  MetadataType/ComponentName
+# Examples:
+#  ApexPage/yahoo_map
+#  CustomField/Account.SLA__c
+#  **/WorkBadge*
+AppMenu/AppSwitcher
+CustomApplication/standard__*
+Profile/*
+Settings/*
+AssignmentRules/*
+AutoResponseRules/*
+Community/*
+CustomObjectTranslation/*
+EscalationRules/*
+MatchingRule/*
+MatchingRules/*
+PermissionSet/*
+SharingRules/*
+Translations/*
+CompactLayout/*
+CustomLabels/*

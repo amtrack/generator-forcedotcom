@@ -1,0 +1,18 @@
+{
+    "projectName": "<%= name %>",
+    "username": "user@example.com",
+    "id": "",
+    "namespace": "",
+    "environment": "sandbox",
+    "workspace": "/tmp",
+    "subscription": [
+        "ApexClass",
+        "ApexComponent",
+        "ApexPage",
+        "ApexTrigger",
+        "AuraDefinitionBundle",
+        "CustomField",
+        "CustomObject",
+        "StaticResource"
+    ]
+}

@@ -1,0 +1,37 @@
+<project name="Salesforce Ant tasks" default="test" basedir="." xmlns:sf="antlib:com.salesforce">
+    <property environment="env" />
+    <available file=".env" property="dotenv.present" />
+    <target name="read-dotenv" if="dotenv.present">
+        <!-- Note: This will only set environment variables that are unset -->
+        <exec executable="bash" outputproperty="env.SFDC_SERVER_URL">
+            <arg value="-c" />
+            <arg value="source .env; echo $SFDC_SERVER_URL" />
+        </exec>
+        <exec executable="bash" outputproperty="env.SFDC_USERNAME">
+            <arg value="-c" />
+            <arg value="source .env; echo $SFDC_USERNAME" />
+        </exec>
+        <exec executable="bash" outputproperty="env.SFDC_PASSWORD">
+            <arg value="-c" />
+            <arg value="source .env; echo $SFDC_PASSWORD" />
+        </exec>
+    </target>
+    <target name="retrieve" depends="read-dotenv">
+        <sf:retrieve username="${env.SFDC_USERNAME}" password="${env.SFDC_PASSWORD}" serverurl="${env.SFDC_SERVER_URL}" retrieveTarget="src" unpackaged="src/package.xml" />
+    </target>
+    <target name="deploy" depends="read-dotenv">
+        <sf:deploy username="${env.SFDC_USERNAME}" password="${env.SFDC_PASSWORD}" serverurl="${env.SFDC_SERVER_URL}" deployRoot="src" rollbackOnError="true" />
+    </target>
+    <target name="deployTest" depends="read-dotenv">
+        <sf:deploy username="${env.SFDC_USERNAME}" password="${env.SFDC_PASSWORD}" serverurl="${env.SFDC_SERVER_URL}" deployRoot="src" rollbackOnError="true" runAllTests="true" />
+    </target>
+    <target name="validate" depends="read-dotenv">
+        <sf:deploy username="${env.SFDC_USERNAME}" password="${env.SFDC_PASSWORD}" serverurl="${env.SFDC_SERVER_URL}" deployRoot="src" checkOnly="true" />
+    </target>
+    <target name="validateTest" depends="read-dotenv">
+        <sf:deploy username="${env.SFDC_USERNAME}" password="${env.SFDC_PASSWORD}" serverurl="${env.SFDC_SERVER_URL}" deployRoot="src" checkOnly="true" runAllTests="true" />
+    </target>
+    <target name="undeploy" depends="read-dotenv">
+        <sf:deploy username="${env.SFDC_USERNAME}" password="${env.SFDC_PASSWORD}" serverurl="${env.SFDC_SERVER_URL}" deployRoot="destructive" rollbackOnError="true" />
+    </target>
+</project>
