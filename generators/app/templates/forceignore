@@ -28,7 +28,8 @@ Portal/*
 SharingSet/*
 
 # Large blobs that don't influence the behaviour
-Document/*
+DocumentFolder/*
+Document/**/*
 
 # Binary metadata
 SiteDotCom/*
