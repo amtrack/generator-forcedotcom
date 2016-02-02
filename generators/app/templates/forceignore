@@ -4,19 +4,38 @@
 #  ApexPage/yahoo_map
 #  CustomField/Account.SLA__c
 #  **/WorkBadge*
-AppMenu/AppSwitcher
-CustomApplication/standard__*
-Profile/*
+
+# Settings type: 'XXX' is unknown
 Settings/*
-AssignmentRules/*
-AutoResponseRules/*
-Community/*
-CustomObjectTranslation/*
-EscalationRules/*
-MatchingRule/*
-MatchingRules/*
-PermissionSet/*
-SharingRules/*
-Translations/*
-CompactLayout/*
+
+# instead of CustomLabels use CustomLabel to explicitly list custom labels
 CustomLabels/*
+
+# Entity of type 'XXX' named 'YYY' cannot be found
+EmailTemplate/unfiled$public/SUPPORT%3A  Self-Service New Comment Notification %28SAMPLE%29
+EmailTemplate/unfiled$public/SUPPORT%3A  Self-Service Reset Password  %28SAMPLE%29
+EmailTemplate/unfiled$public/SUPPORT%3A  Self-Service New User Login Information %28SAMPLE%29
+QuickAction/CollaborationGroup*
+QuickAction/NewGroup
+RecordType/Account.PersonalAccount
+
+# Load of metadata from db failed for metadata of type:XXX and file name:YYY
+AppMenu/AppSwitcher
+
+# Although metadata is being listed explicity no metadata was retrieved
+Network/*
+Portal/*
+SharingSet/*
+
+# Large blobs that don't influence the behaviour
+Document/*
+
+# Binary metadata
+SiteDotCom/*
+
+# Seems to change every few retrieves for no reason
+QuickAction/LogACall
+QuickAction/New*
+
+# MavensMate: Unrecognized package.xml metadata type: MatchingRule. See MatchingRules instead
+MatchingRule/*
