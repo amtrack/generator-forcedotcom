@@ -12,6 +12,7 @@ Referenced Packages
 config/
 *.sublime-*
 mm.log
+debug/
 
 ## OS
 .DS_Store
