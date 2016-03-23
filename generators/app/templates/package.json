@@ -11,6 +11,6 @@
   "author": "",
   "license": "ISC",
   "dependencies": {
-    "force-dev-tool": "^0.1.0"
+    "force-dev-tool": "^0.3.1"
   }
 }
