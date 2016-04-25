@@ -6,7 +6,7 @@
   "main": "",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
-    "validateTest": "force-dev-tool validateTest"
+    "validateTest": "force-dev-tool validateTest build"
   },
   "author": "",
   "license": "ISC",

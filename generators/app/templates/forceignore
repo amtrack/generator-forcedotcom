@@ -28,8 +28,8 @@ Portal/*
 SharingSet/*
 
 # Large blobs that don't influence the behaviour (the retrieved zip file has a limit of 400 MB)
-DocumentFolder/*
-Document/**/*
+# DocumentFolder/*
+# Document/**/*
 
 # Binary metadata
 SiteDotCom/*

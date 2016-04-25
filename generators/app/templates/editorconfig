@@ -2,25 +2,21 @@
 root = true
 
 [*]
-end_of_line = lf
-insert_final_newline = true
-indent_style = space
-indent_size = 4
 charset = utf-8
+end_of_line = lf
+insert_final_newline = false
 
 [*.md]
 trim_trailing_whitespace = false
 
-[*.{xml,object,workflow,tab}]
-
+# Apex
 [*.{cls,trigger}]
-indent_style = space
-insert_final_newline = false
+indent_style = tab
 
+# Visualforce
 [*.{component,page}]
 indent_style = tab
-insert_final_newline = false
 
-[*.{js,cmp}]
-indent_style = space
-insert_final_newline = false
+# Aura
+[*.{cmp,css,evt,js}]
+indent_style = tab
