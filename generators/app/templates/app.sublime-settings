@@ -6,6 +6,6 @@ NOTE: MavensMate Project settings will override MavensMate default and user sett
 */
 
 {
-   "mm_api_version" : <%= apiVersion %>
+   "mm_api_version" : <%= props.apiVersion %>
    //"mm_compile_with_tooling_api" : true
 }

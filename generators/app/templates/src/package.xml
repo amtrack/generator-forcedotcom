@@ -36,5 +36,5 @@
         <members></members>
         <name>Workflow</name>
     </types>
-    <version><%= apiVersion %></version>
+    <version><%= props.apiVersion %></version>
 </Package>

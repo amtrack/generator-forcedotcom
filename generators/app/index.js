@@ -4,15 +4,12 @@ var yeoman = require('yeoman-generator');
 var chalk = require('chalk');
 var yosay = require('yosay');
 
-module.exports = yeoman.generators.Base.extend({
+module.exports = yeoman.Base.extend({
   initializing: function () {
-    this.pkg = require('../../package.json');
-    this.name = this.appname.replace(/ /g, '-');
+    this.appnameSlugified = this.appname.replace(/ /g, '-');
   },
 
   prompting: function () {
-    var done = this.async();
-
     // Have Yeoman greet the user.
     this.log(yosay(
       'Welcome to the beautiful ' + chalk.red('Forcedotcom') + ' generator!'
@@ -25,11 +22,9 @@ module.exports = yeoman.generators.Base.extend({
       default: '34.0'
     }];
 
-    this.prompt(prompts, function (props) {
-      this.apiVersion = props.apiVersion;
-      // To access props later use this.props.someOption;
-
-      done();
+    return this.prompt(prompts).then(function (props) {
+      // To access props later use this.props.someAnswer;
+      this.props = props;
     }.bind(this));
   },
 
@@ -46,17 +41,26 @@ module.exports = yeoman.generators.Base.extend({
       this.fs.copyTpl(
         this.templatePath('src/package.xml'),
         this.destinationPath('src/package.xml'),
-        this
+        {
+          props: this.props,
+          appnameSlugified: this.appnameSlugified
+        }
       );
       this.fs.copyTpl(
         this.templatePath('README.md'),
         this.destinationPath('README.md'),
-        this
+        {
+          props: this.props,
+          appnameSlugified: this.appnameSlugified
+        }
       );
       this.fs.copyTpl(
         this.templatePath('package.json'),
         this.destinationPath('package.json'),
-        this
+        {
+          props: this.props,
+          appnameSlugified: this.appnameSlugified
+        }
       );
     },
 
@@ -76,27 +80,39 @@ module.exports = yeoman.generators.Base.extend({
       this.fs.copyTpl(
         this.templatePath('config/.settings'),
         this.destinationPath('config/.settings'),
-        this
+        {
+          props: this.props,
+          appnameSlugified: this.appnameSlugified
+        }
       );
       this.fs.copyTpl(
         this.templatePath('config/.local_store'),
         this.destinationPath('config/.local_store'),
-        this
+        {
+          props: this.props,
+          appnameSlugified: this.appnameSlugified
+        }
       );
       this.fs.copyTpl(
         this.templatePath('app.sublime-project'),
-        this.destinationPath(this.name + '.sublime-project'),
-        this
+        this.destinationPath(this.appnameSlugified + '.sublime-project'),
+        {
+          props: this.props,
+          appnameSlugified: this.appnameSlugified
+        }
       );
       this.fs.copyTpl(
         this.templatePath('app.sublime-settings'),
-        this.destinationPath(this.name + '.sublime-settings'),
-        this
+        this.destinationPath(this.appnameSlugified + '.sublime-settings'),
+        {
+          props: this.props,
+          appnameSlugified: this.appnameSlugified
+        }
       );
-    }
+    },
   },
 
   install: function () {
-    this.npmInstall();
+    // this.installDependencies({bower: false});
   }
 });

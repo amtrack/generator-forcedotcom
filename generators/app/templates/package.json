@@ -1,5 +1,5 @@
 {
-  "name": "<%= name %>",
+  "name": "<%= appnameSlugified %>",
   "version": "0.0.0",
   "description": "> Short Project Description",
   "private": true,

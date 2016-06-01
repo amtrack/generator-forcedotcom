@@ -1,20 +1,13 @@
 {
   "name": "generator-forcedotcom",
-  "description": "Yeoman generator for Force.com projects",
   "version": "0.1.0",
+  "description": "Yeoman generator for Force.com projects",
+  "homepage": "",
   "author": "Matthias Rolke <mr.amtrack@gmail.com",
-  "dependencies": {
-    "chalk": "^1.1.1",
-    "yeoman-generator": "^0.20.3",
-    "yosay": "^1.0.5"
-  },
-  "devDependencies": {
-    "eslint": "^1.3.1",
-    "mocha": "*"
-  },
   "files": [
     "generators"
   ],
+  "main": "generators/app/index.js",
   "keywords": [
     "force.com",
     "forcedotcom",
@@ -23,8 +16,27 @@
     "sfdc",
     "yeoman-generator"
   ],
+  "dependencies": {
+    "chalk": "^1.0.0",
+    "yeoman-generator": "^0.23.0",
+    "yosay": "^1.0.0"
+  },
+  "devDependencies": {
+    "eslint": "^2.1.0",
+    "mocha": "*",
+    "yeoman-test": "^1.0.0",
+    "yeoman-assert": "^2.0.0",
+    "eslint-config-xo-space": "^0.13.0",
+    "gulp": "^3.9.0",
+    "gulp-eslint": "^2.0.0",
+    "gulp-exclude-gitignore": "^1.0.0",
+    "gulp-line-ending-corrector": "^1.0.1",
+    "gulp-istanbul": "^0.10.3",
+    "gulp-mocha": "^2.0.0",
+    "gulp-plumber": "^1.0.0",
+    "gulp-nsp": "^2.1.0"
+  },
   "license": "MIT",
-  "main": "generators/app/index.js",
   "repository": {
     "type": "git",
     "url": "https://github.com/amtrack/generator-forcedotcom.git"
@@ -32,6 +44,13 @@
   "scripts": {
     "lint": "eslint --ignore-path .gitignore .",
     "mocha": "mocha test/ --recursive",
-    "test": "npm run lint && npm run mocha"
+    "test": "gulp",
+    "prepublish": "gulp prepublish"
+  },
+  "eslintConfig": {
+    "extends": "xo-space",
+    "env": {
+      "mocha": true
+    }
   }
 }

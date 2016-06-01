@@ -1,5 +1,5 @@
 {
-    "projectName": "<%= name %>",
+    "projectName": "<%= appnameSlugified %>",
     "username": "user@example.com",
     "id": "",
     "namespace": "",
